@@ -8,7 +8,7 @@ abstract class Table extends Component
 {
     use WithPagination;
   
-    public $perPage = 82;
+    public $perPage = 50;
     public $page = 1;
     public $sortBy = '';
     public $sortDirection = 'asc';
@@ -18,15 +18,16 @@ abstract class Table extends Component
   
     public function data()
     {
-      return $this
-        ->query()
-        ->when($this->sortBy !== '', function ($query) {
-            $query->orderBy($this->sortBy, $this->sortDirection);
-        })
-        ->paginate($this->perPage);
-    } 
+        return $this
+          ->query()
+          ->when($this->sortBy !== '', function ($query) {
+              $query->orderBy($this->sortBy, $this->sortDirection);
+          })
+          ->paginate($this->perPage);
+    }
     
-    public function sort($key) {
+    public function sort($key)
+    {
         $this->resetPage();
       
         if ($this->sortBy === $key) {
@@ -38,7 +39,7 @@ abstract class Table extends Component
       
         $this->sortBy = $key;
         $this->sortDirection = 'asc';
-      }
+    }
       
     
     public function render()
