@@ -54,19 +54,19 @@ class XcrateController extends Controller
         $data = json_decode($json, true);
         $period = $data['@attributes']['Period'];
 
-        // foreach ($data['exchangeRate'] as $index => $data) {
-        //     $xrdata[] =[
-        //         'countryName' => $data['countryName'],
-        //          'countryCode' => $data['countryCode'] ,
-        //          'currencyName'  => $data['currencyName'],
-        //         'currencyCode'  => $data['currencyCode'],
-        //          'rateNew'  => $data['rateNew'],
-        //         'period' => $period,
-        //     ];
-        // }
+        foreach ($data['exchangeRate'] as $index => $data) {
+            $xrdata[] =[
+                'countryName' => $data['countryName'],
+                 'countryCode' => $data['countryCode'] ,
+                 'currencyName'  => $data['currencyName'],
+                'currencyCode'  => $data['currencyCode'],
+                 'rateNew'  => $data['rateNew'],
+                'period' => $period,
+            ];
+        }
 
         
-        dd($data);
+        dd($xrdata);
         //       Xcrate::insert($xrdata);
         //      echo "data stored";
         //redirect with flash msg

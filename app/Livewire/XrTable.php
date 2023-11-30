@@ -27,5 +27,14 @@ class XrTable extends Table
          ];
     }
 
+    public function render()
+    {
+    //     return view('livewire.table', ['xrdata'=>Xcrate::get() 
+    //      ->where('period', '01/Jan/2023 to 31/Jan/2023')
+    // ]);
+
+    return view('livewire.table');
+    }
+
 
 }
