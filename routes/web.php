@@ -2,6 +2,7 @@
 
 use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\XcrateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/getxr', function () {
+    return view('home');
+});
+Route::post('/getxr',[ XcrateController::class,'store']);
+
+
 Route::get('/counter', Counter::class);
