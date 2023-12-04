@@ -13,7 +13,7 @@ abstract class Table extends Component
     public $page = 1;
     public $sortBy = '';
     public $sortDirection = 'asc';
-  
+      
     abstract public function query() : \Illuminate\Database\Eloquent\Builder;
     abstract public function columns() : array;
   
@@ -43,10 +43,12 @@ abstract class Table extends Component
     }
       
     
-    // public function render()
-    // {
-    //     return view('livewire.table', ['xrdata'=>Xcrate::get() 
-    //     //->where('period', '01/Jan/2023 to 31/Jan/2023')
-    // ]);
-    // }
+    public function render()
+    {
+       
+        return view('livewire.table', [Xcrate::where('name', 'like', '%'.$this->search.'%')]);
+
+        //cannot get search to work  V2 /V3 garble     model.live in v3  and sorting has broken now too
+        // restart this project with  a  fresh laravel
+    }
 }

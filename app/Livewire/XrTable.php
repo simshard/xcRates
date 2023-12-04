@@ -11,8 +11,8 @@ class XrTable extends Table
     public function query() : Builder
     {
         return Xcrate::query(); //all
-        //->where('period', '01/Jan/2023 to 31/Jan/2023');
-        //Horrid hack to just display  one monthly xr set -
+         //->where('period', '01/Jan/2023 to 31/Jan/2023');
+        //Horrid hack to just display  one monthly period xr set -
     }
 
     public function columns() : array
@@ -27,14 +27,12 @@ class XrTable extends Table
          ];
     }
 
-    public function render()
-    {
-    //     return view('livewire.table', ['xrdata'=>Xcrate::get() 
-    //      ->where('period', '01/Jan/2023 to 31/Jan/2023')
-    // ]);
+    // public function render()
+    // {
+    //      return view('livewire.table', ['xrdata'=>Xcrate::where('name','like','%'.$this->search.'%') ]);
 
-    return view('livewire.table');
-    }
+    // //return view('livewire.table');
+    // }
 
 
 }
